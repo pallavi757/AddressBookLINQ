@@ -34,6 +34,8 @@ namespace AddressBookProblem
                 new DataColumn("Zip",typeof(string)),
                 new DataColumn("Email",typeof(string)),
                 new DataColumn("PhoneNo",typeof(string)),
+                new DataColumn("ContactType",typeof(string)),//add two column contacttype and addressbookname
+                new DataColumn("AddressBookName",typeof(string))
             };
             columns[0].AutoIncrement = true;
             columns[0].AutoIncrementSeed = 1;
@@ -95,6 +97,8 @@ namespace AddressBookProblem
                     row.SetField("Zip", field[6].ToString());
                     row.SetField("Email", field[7].ToString());
                     row.SetField("PhoneNo", field[8].ToString());
+                    row.SetField("ContactType", field[9].ToString());//add two rows
+                    row.SetField("AddressBookName", field[10].ToString());
                     editedRows++;
                 }
             }
