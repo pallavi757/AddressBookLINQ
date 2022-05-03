@@ -42,6 +42,7 @@ namespace AddressBookProblem
             objAddressBook.GetSizeByCity("Noida");
             objAddressBook.GetSizeByState("UP");
             objAddressBook.RetriveSortedEntryForACity("Noida");
+            objAddressBook.GetCountByType("Friend");
 
         }
     }

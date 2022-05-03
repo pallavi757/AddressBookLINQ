@@ -153,6 +153,12 @@ namespace AddressBookProblem
             Console.WriteLine($"Sorted Search by City {city} : ");
             ShowTable(cityResults);
         }
+        //UC 10
+        public void GetCountByType(string type)
+        {
+            Console.WriteLine($"Count by Type {type} : {addressBookTable.AsEnumerable().Where(x => x.Field<string>("ContactType") == type).Count()}");
+        }
+
 
         private static void ShowTable(IEnumerable<DataRow> rows)
         {
