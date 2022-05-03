@@ -37,6 +37,7 @@ namespace AddressBookProblem
             objAddressBook.RetrieveContactsByState("UP");
             objAddressBook.GetSizeByCity("Noida");
             objAddressBook.GetSizeByState("UP");
+            objAddressBook.RetriveSortedEntryForACity("Noida");
 
         }
     }
