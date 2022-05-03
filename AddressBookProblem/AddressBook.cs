@@ -132,7 +132,15 @@ namespace AddressBookProblem
             Console.WriteLine($"Search by State {state} : ");
             ShowTable(stateResults);
         }
-
+        //UC7
+        public void GetSizeByCity(string city)
+        {
+            Console.WriteLine($"Size by city {city} is : {addressBookTable.AsEnumerable().Where(x => (x.Field<string>("City") == city)).Count()}");
+        }
+        public void GetSizeByState(string state)
+        {
+            Console.WriteLine($"Size by state {state} is : {addressBookTable.AsEnumerable().Where(x => (x.Field<string>("State") == state)).Count()}");
+        }
         private static void ShowTable(IEnumerable<DataRow> rows)
         {
             foreach (DataColumn column in addressBookTable.Columns)

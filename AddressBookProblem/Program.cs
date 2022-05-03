@@ -19,7 +19,7 @@ namespace AddressBookProblem
                 new object[] {null, "Mansi", "Sharma", "Lane98", "Pune", "Maharastra", "777777", "mansi@exp.com", "9999999999"},
                 new object[] {null, "Anushka", "Sharma", "Street 76", "Mumbai", "Maharastra", "444444", "anu@abc.com", "8888888888"},
                 new object[] {null, "Ashish", "Kumar", "Street 90", "Noida", "UP", "555555", "ash123@gmail.com", "451212121"},
-                new object[] {null, "abhishek", "yaday", "Street 978", "Kanpur", "UP", "666666", "yad@abc.com", "451212121"},
+                new object[] {null, "abhishek", "yadav", "Street 978", "Kanpur", "UP", "666666", "yad@abc.com", "451212121"},
                 new object[] {null, "Rahul", "Kumar", "Street 90 California", "California", "California", "454545", "mar@gg", "451212121"}
             };
             DataTable objTable1 = objAddressBook.InsertValues(fieldsToInsert);
@@ -35,6 +35,9 @@ namespace AddressBookProblem
             AddressBook.ShowTable(objTable3);
             objAddressBook.RetrieveContactsByCity("California");
             objAddressBook.RetrieveContactsByState("UP");
+            objAddressBook.GetSizeByCity("Noida");
+            objAddressBook.GetSizeByState("UP");
+
         }
     }
 }
