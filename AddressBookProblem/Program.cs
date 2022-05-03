@@ -26,6 +26,8 @@ namespace AddressBookProblem
             };
             DataTable objTable2 = objAddressBook.EditExitingContacts(fieldsToEdit);
             AddressBook.ShowTable(objTable2);
+            DataTable objTable3 = objAddressBook.DeleteContact("Mark", "Zukerburg");
+            AddressBook.ShowTable(objTable3);
         }
     }
 }

@@ -101,5 +101,22 @@ namespace AddressBookProblem
             Console.WriteLine($"{editedRows} rows edited");
             return addressBookTable;
         }
+        /// <summary>Deletes the contact.</summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <returns>addressBookTable after deletion</returns>
+            public DataTable DeleteContact(string firstName, string lastName)
+            {
+            int deletedRows = 0;
+            DataRow deleteRow = (from row in addressBookTable.AsEnumerable()
+                                 where row.Field<string>("FirstName") == firstName && row.Field<string>("LastName") == lastName
+                                 select row).FirstOrDefault();
+            deleteRow.Delete();
+            deletedRows++;
+            Console.WriteLine($"{deletedRows} rows deleted");
+            return addressBookTable;
+            }
+
+
     }
 }
