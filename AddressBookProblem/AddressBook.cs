@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AddressBookProblem
 {
-   public class AddressBook
+    class AddressBook
     {
         DataSet addressBookSet;
         DataTable addressBookTable;
         public AddressBook()
         {
-            addressBookSet = new DataSet();
+            addressBookSet = new DataSet();//UC1
         }
-        public DataTable CreateAddressBookTable()//create address book table
+        public DataTable CreateAddressBookTable()//UC2
         {
             addressBookTable = new DataTable();
             addressBookSet.Tables.Add(addressBookTable);
@@ -31,26 +31,37 @@ namespace AddressBookProblem
                 new DataColumn("Email",typeof(string)),
                 new DataColumn("PhoneNo",typeof(string)),
             };
+            columns[0].AutoIncrement = true;
+            columns[0].AutoIncrementSeed = 1;
             addressBookTable.Columns.AddRange(columns);
             addressBookTable.PrimaryKey = new[] { columns[0] };
             return addressBookTable;
         }
-        public void ShowTable(DataTable table)//Display table structure
+        public void ShowTable(DataTable table)//for display table structure 
         {
             foreach (DataColumn column in table.Columns)
             {
-                Console.Write("{0,-14}".PadRight(8,'|').PadLeft(9,' '), column);
+                Console.Write("{0,-20}".PadRight(8, '|').PadLeft(9, ' '), column);
             }
             Console.WriteLine();
             foreach (DataRow row in table.Rows)
             {
                 foreach (DataColumn column in table.Columns)
                 {
-                    Console.Write("{0,-14}".PadRight(8,'|').PadLeft(9,' '), row[column]);
+                    Console.Write("{0,-20}".PadRight(8, '|').PadLeft(9, ' '), row[column]);
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
+        public DataTable InsertValues(params object[] values)//UC3
+        {
+            DataTable table = CreateAddressBookTable();
+            foreach (object[] field in values)
+            {
+                table.Rows.Add(field);
+            }
+            return table;
+        }
     }
- }
+}
